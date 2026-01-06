@@ -8,7 +8,7 @@ export default function Hero() {
     name: "Spectra Invents",
     description: "An inventory app built for smms and business to manage sales and inventory",
     image: "/inventory.png",
-    url: "#",
+    url: "https://spectra-invents.vercel.app/",
     languages: ["React", "TypeScript", "Tailwind CSS","express"],
   });
 
