@@ -52,10 +52,10 @@ export default function Contact() {
 
             <button
               onClick={handleEmailClick}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a1a1a] text-[#e8eaf6] font-semibold rounded-lg hover:bg-[#252525] border border-[#2a2a2a] transition-all duration-300 text-lg"
+              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 bg-[#1a1a1a] text-[#e8eaf6] font-semibold rounded-lg hover:bg-[#252525] border border-[#2a2a2a] transition-all duration-300 text-sm sm:text-lg break-all"
             >
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -67,7 +67,7 @@ export default function Contact() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              {email}
+              <span className="break-all text-left">{email}</span>
             </button>
 
             <div className="mt-12 pt-8 border-t border-[#1a1a1a]">

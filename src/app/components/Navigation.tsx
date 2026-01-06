@@ -35,7 +35,7 @@ export default function Navigation() {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-2xl font-bold text-[#e8eaf6] hover:text-[#94a3b8] transition-colors"
+              className="text-xl sm:text-2xl font-bold text-[#e8eaf6] hover:text-[#94a3b8] transition-colors"
             >
               {"<Ernest/>"}
             </button>
@@ -68,7 +68,7 @@ export default function Navigation() {
               </button>
             </div>
           </div>
-          <div className="md:hidden">
+          <div className="flex md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-[#94a3b8] hover:text-[#e8eaf6] p-2 transition-colors"
@@ -100,29 +100,29 @@ export default function Navigation() {
           </div>
         </div>
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-[#1a1a1a]">
+          <div className="md:hidden border-t border-[#1a1a1a] bg-[#000000]/95 backdrop-blur-md">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button
                 onClick={() => scrollToSection("projects")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-base font-medium transition-colors"
+                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-base font-medium transition-colors"
+                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("skills")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-base font-medium transition-colors"
+                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
               >
                 Skills
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-base font-medium transition-colors"
+                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
               >
                 Contact
               </button>
