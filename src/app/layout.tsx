@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ernest Fakokunde Portfolio",
-  description: "Personal portfolio showcasing my projects, skills, and experience",
+  description:"Ernest Fakokunde Ayodele Porfolio showcasing my projects, skills, and experience",
+  verification: {
+    google: "bpovFkoH9D8qlJNBHCIDxcq0EJLLniDMBnISwK7-TNk",
+  },
 };
 
 export default function RootLayout({
