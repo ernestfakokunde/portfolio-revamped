@@ -1,68 +1,74 @@
-"use client";
+import Reveal from "@/app/components/ui/Reveal";
+import SectionHeader from "@/app/components/ui/SectionHeader";
+import { skillGroups, workflowPoints } from "@/app/data/site";
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      category: "Frontend",
-      skills: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript",
-        "HTML/CSS",
-        "Tailwind CSS",
-      ],
-    },
-    {
-      category: "Backend",
-      skills: ["Node.js", "Python", "Express", "REST APIs", "Database"],
-    },
-    {
-      category: "Tools & Others",
-      skills: ["Git", "VS Code", "Figma", "Postman", "Docker"],
-    },
-  ];
-
   return (
-    <section
-      id="skills"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-[#000000]"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#e8eaf6] mb-4">
-            Skills
-          </h2>
-          <div className="w-24 h-0.5 bg-[#2a2a2a] mx-auto mb-4"></div>
-          <p className="text-[#94a3b8] text-lg max-w-2xl mx-auto">
-            Technologies and tools I work with
-          </p>
-        </div>
+    <section id="skills" className="px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <SectionHeader
+            eyebrow="Capabilities"
+            title="The stack I use to turn ideas into clean, reliable experiences."
+            description="From front-end systems to backend delivery, these are the tools I use to build polished digital products."
+          />
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <div
-              key={categoryIndex}
-              className="bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#1a1a1a] rounded-lg p-8 hover:border-[#2a2a2a] transition-all duration-300"
-            >
-              <h3 className="text-2xl font-bold text-[#e8eaf6] mb-6 text-center">
-                {category.category}
+        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <Reveal>
+            <div className="panel rounded-[2rem] p-8 sm:p-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">
+                What I optimize for
+              </p>
+              <h3 className="mt-4 text-3xl font-semibold text-white">
+                Better hierarchy, better usability, and stronger product polish.
               </h3>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-4 py-2 bg-[#1a1a1a] text-[#94a3b8] rounded-lg text-sm font-medium border border-[#2a2a2a] hover:border-[#3a3a3a] hover:text-[#e8eaf6] hover:bg-[#252525] transition-all duration-300"
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
+                I care about how sections flow together, how components scale,
+                and how interactions reinforce the brand instead of distracting
+                from it.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {workflowPoints.map((point, index) => (
+                  <Reveal
+                    key={point}
+                    delay={index * 70}
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200"
                   >
-                    {skill}
-                  </span>
+                    {point}
+                  </Reveal>
                 ))}
               </div>
             </div>
-          ))}
+          </Reveal>
+
+          <div className="grid gap-5">
+            {skillGroups.map((group, index) => (
+              <Reveal key={group.title} delay={index * 120} direction="left">
+                <div className="panel rounded-[1.75rem] p-6 sm:p-7">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-100/80">
+                    {group.title}
+                  </p>
+                  <p className="mt-3 text-base leading-7 text-slate-300">
+                    {group.summary}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-slate-100"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

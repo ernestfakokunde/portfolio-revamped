@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ernest Fakokunde Portfolio",
-  description:"Ernest Fakokunde Ayodele Porfolio showcasing my projects, skills, and experience",
+  title: "Ernest Fakokunde | Full-Stack Product Developer",
+  description:
+    "Ernest Fakokunde Ayodele builds product-focused web experiences with clean structure, motion, and modern UI systems.",
   verification: {
     google: "bpovFkoH9D8qlJNBHCIDxcq0EJLLniDMBnISwK7-TNk",
   },
@@ -27,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

@@ -1,81 +1,104 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
+import { navigationItems } from "@/app/data/site";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+
+  const updateNavigationState = useEffectEvent(() => {
+    setIsScrolled(window.scrollY > 24);
+
+    const sectionIds = ["hero", ...navigationItems.map((item) => item.id)];
+    const currentPosition = window.scrollY + window.innerHeight * 0.35;
+
+    let currentSection = "hero";
+
+    for (const id of sectionIds) {
+      const element = document.getElementById(id);
+
+      if (element && currentPosition >= element.offsetTop) {
+        currentSection = id;
+      }
+    }
+
+    setActiveSection(currentSection);
+  });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    updateNavigationState();
+    window.addEventListener("scroll", updateNavigationState, { passive: true });
+    window.addEventListener("resize", updateNavigationState);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavigationState);
+      window.removeEventListener("resize", updateNavigationState);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
+
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#000000]/95 backdrop-blur-md shadow-lg border-b border-[#1a1a1a]"
+          ? "border-b border-white/10 bg-slate-950/70 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="panel flex items-center justify-between rounded-full px-4 py-3 sm:px-5">
+          <button
+            onClick={() => scrollToSection("hero")}
+            className="text-lg font-semibold tracking-tight text-white hover:text-cyan-200 sm:text-xl"
+          >
+            {"<Ernest/>"}
+          </button>
+
+          <div className="hidden items-center gap-2 md:flex">
+            {navigationItems.map((item) => {
+              const isActive = activeSection === item.id;
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`rounded-full px-4 py-2 text-sm font-medium ${
+                    isActive
+                      ? "bg-white/10 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
+                      : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
             <button
-              onClick={() => scrollToSection("hero")}
-              className="text-xl sm:text-2xl font-bold text-[#e8eaf6] hover:text-[#94a3b8] transition-colors"
+              onClick={() => scrollToSection("contact")}
+              className="ml-3 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100 hover:-translate-y-0.5 hover:border-cyan-200/50 hover:bg-cyan-300/15"
             >
-              {"<Ernest/>"}
+              Let&apos;s talk
             </button>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-sm font-medium transition-colors"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Skills
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-[#94a3b8] hover:text-[#e8eaf6] px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Contact
-              </button>
-            </div>
-          </div>
+
           <div className="flex md:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-[#94a3b8] hover:text-[#e8eaf6] p-2 transition-colors"
+              onClick={() => setIsMobileMenuOpen((current) => !current)}
+              className="rounded-full border border-white/10 bg-white/5 p-2 text-slate-200 hover:bg-white/10"
+              aria-expanded={isMobileMenuOpen}
               aria-label="Toggle menu"
             >
               <svg
-                className="w-6 h-6"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -84,47 +107,47 @@ export default function Navigation() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={1.8}
                     d="M6 18L18 6M6 6l12 12"
                   />
                 ) : (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
+                    strokeWidth={1.8}
+                    d="M4 7h16M4 12h16M4 17h16"
                   />
                 )}
               </svg>
             </button>
           </div>
         </div>
+
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-[#1a1a1a] bg-[#000000]/95 backdrop-blur-md">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
-              >
-                Skills
-              </button>
+          <div className="panel mt-3 rounded-3xl p-3 md:hidden">
+            <div className="space-y-2">
+              {navigationItems.map((item) => {
+                const isActive = activeSection === item.id;
+
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium ${
+                      isActive
+                        ? "bg-white/10 text-white"
+                        : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="block w-full text-left text-[#94a3b8] hover:text-[#e8eaf6] hover:bg-[#1a1a1a] px-3 py-2.5 text-base font-medium transition-colors rounded-md bg-[#0a0a0a]/50"
+                className="block w-full rounded-2xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-3 text-left text-sm font-medium text-cyan-100"
               >
-                Contact
+                Let&apos;s talk
               </button>
             </div>
           </div>
@@ -133,4 +156,3 @@ export default function Navigation() {
     </nav>
   );
 }
-

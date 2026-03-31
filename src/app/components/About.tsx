@@ -1,55 +1,76 @@
-"use client";
+import Reveal from "@/app/components/ui/Reveal";
+import SectionHeader from "@/app/components/ui/SectionHeader";
+import { aboutCards, aboutParagraphs } from "@/app/data/site";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-[#000000]"
-    >
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#e8eaf6] mb-4">
-            About Me
-          </h2>
-          <div className="w-24 h-0.5 bg-[#2a2a2a] mx-auto mb-4"></div>
-        </div>
+    <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <Reveal>
+          <SectionHeader
+              eyebrow="About"
+              title="A developer who cares about both how a product works and how it feels."
+              description="I build modern web experiences with a strong eye for structure, usability, and visual polish."
+            />
+            <div className="panel rounded-[2rem] p-8 sm:p-10">
+              <div className="space-y-6">
+                {aboutParagraphs.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="text-lg leading-8 text-slate-300"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
-        <div className="bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#1a1a1a] rounded-lg p-8 sm:p-12 shadow-2xl">
-          <div className="prose prose-invert max-w-none">
-            <p className="text-[#94a3b8] text-lg leading-relaxed mb-6">
-              Hello i'm Ernest Fakokunde a Full Stack developer and creator. I'm a passionate about creating web applications that are not only functional but also visually appealing and user-friendly.
-            </p>
+              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                {[
+                  "Product-minded execution",
+                  "Responsive front-end craft",
+                  "Reliable full-stack delivery",
+                ].map((point) => (
+                  <div
+                    key={point}
+                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-medium text-slate-200"
+                  >
+                    {point}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
 
-            <p className="text-[#cbd5e1] text-lg leading-relaxed mb-6">
-               i'm a student of Federal University of Technology, Minna and i'm currently pursuing a degree in computer science.
-            </p>
-            <p className="text-[#cbd5e1] text-lg leading-relaxed">
-               I'm currently working and collaborate with companies and individuals to create web applications that are not only functional but also visually appealing and user-friendly. i create web applications using the latest technologies and frameworks to ensure that the applications are not only functional but also visually appealing and user-friendly.
-            </p>
-          </div>
+          <div className="grid gap-5">
+            {aboutCards.map((card, index) => (
+              <Reveal key={card.label} delay={index * 110} direction="left">
+                <div className="panel rounded-[1.75rem] p-6 sm:p-7">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
+                    {card.label}
+                  </p>
+                  <p className="mt-3 text-xl font-semibold text-white">
+                    {card.value}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
 
-          {/* Personal Details Section */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#1a1a1a] rounded-lg p-6 border border-[#2a2a2a]">
-              <h3 className="text-[#e8eaf6] font-semibold mb-3">Location</h3>
-              <p className="text-[#94a3b8]">Abuja, Nigeria</p>
-            </div>
-            <div className="bg-[#1a1a1a] rounded-lg p-6 border border-[#2a2a2a]">
-              <h3 className="text-[#e8eaf6] font-semibold mb-3">Email</h3>
-              <p className="text-[#94a3b8]">ernestfakokunde9@gmail.com</p>
-            </div>
-            <div className="bg-[#1a1a1a] rounded-lg p-6 border border-[#2a2a2a]">
-              <h3 className="text-[#e8eaf6] font-semibold mb-3">Education</h3>
-              <p className="text-[#94a3b8]">B-tech in Computer Science {"in progress"}</p>
-            </div>
-            <div className="bg-[#1a1a1a] rounded-lg p-6 border border-[#2a2a2a]">
-              <h3 className="text-[#e8eaf6] font-semibold mb-3">Experience</h3>
-              <p className="text-[#94a3b8]">Worked on various projects and collaborated with open source communities to create scalable and efficient web applications.</p>
-            </div>
+            <Reveal delay={420} direction="left">
+              <div className="panel rounded-[1.75rem] p-6 sm:p-7">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
+                  Working approach
+                </p>
+                <p className="mt-3 text-base leading-7 text-slate-300">
+                  I like products that need both visual polish and thoughtful
+                  implementation, especially when a platform needs a clearer
+                  structure, stronger motion, or a sharper front-end identity.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
