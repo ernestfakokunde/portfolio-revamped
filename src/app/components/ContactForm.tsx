@@ -195,7 +195,7 @@ export default function ContactForm() {
       >
         {feedback.message ||
           (serviceId && templateId && publicKey
-            ? "Live email delivery is active through EmailJS."
+            ? "Live delivery Guranteed with Email.js"
             : "EmailJS will send directly once your keys are added.")}
       </p>
     </form>
