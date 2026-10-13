@@ -51,26 +51,25 @@ export default function Contact() {
                   </a>
                 </div>
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  {contactLinks.map((item, index) => (
-                    <Reveal key={item.label} delay={index * 90}>
-                      <a
-                        href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel={
-                          item.href.startsWith("http")
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        className="block rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 hover:-translate-y-1 hover:border-cyan-200/30 hover:bg-white/[0.08]"
-                      >
-                        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
-                          {item.label}
-                        </p>
-                        <p className="mt-2 text-base font-medium text-white">
-                          {item.value}
-                        </p>
-                      </a>
-                    </Reveal>
+                  {contactLinks.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={
+                        item.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="min-w-0 rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-cyan-200/30 hover:bg-white/[0.08]"
+                    >
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
+                        {item.label}
+                      </p>
+                      <p className="mt-2 break-all text-base font-medium leading-6 text-white">
+                        {item.value}
+                      </p>
+                    </a>
                   ))}
                 </div>
               </div>
