@@ -4,7 +4,7 @@ import { aboutCards, aboutParagraphs } from "@/app/data/site";
 
 export default function About() {
   return (
-    <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="about" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
@@ -74,3 +74,4 @@ export default function About() {
     </section>
   );
 }
+

@@ -12,9 +12,9 @@ export default function Home() {
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       >
-        <div className="drift absolute left-1/2 top-[-10rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="float-slow absolute right-[-8rem] top-[16rem] h-[26rem] w-[26rem] rounded-full bg-orange-400/12 blur-3xl" />
-        <div className="pulse-soft absolute left-[-10rem] top-[58rem] h-[28rem] w-[28rem] rounded-full bg-teal-300/10 blur-3xl" />
+        <div className="drift absolute left-1/2 top-[-10rem] h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-lime-400/10 blur-3xl" />
+        <div className="float-slow absolute right-[-8rem] top-[16rem] h-[28rem] w-[28rem] rounded-full bg-green-500/10 blur-3xl" />
+        <div className="pulse-soft absolute left-[-10rem] top-[58rem] h-[28rem] w-[28rem] rounded-full bg-emerald-300/[0.08] blur-3xl" />
       </div>
       <Navigation />
       <main className="relative z-10">

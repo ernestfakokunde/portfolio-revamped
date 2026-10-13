@@ -4,7 +4,7 @@ import { skillGroups, workflowPoints } from "@/app/data/site";
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="skills" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeader
@@ -47,7 +47,7 @@ export default function Skills() {
             {skillGroups.map((group, index) => (
               <Reveal key={group.title} delay={index * 120} direction="left">
                 <div className="panel rounded-[1.75rem] p-6 sm:p-7">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-100/80">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-lime-200/80">
                     {group.title}
                   </p>
                   <p className="mt-3 text-base leading-7 text-slate-300">
@@ -72,3 +72,4 @@ export default function Skills() {
     </section>
   );
 }
+

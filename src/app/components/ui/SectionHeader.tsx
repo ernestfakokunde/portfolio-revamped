@@ -1,4 +1,4 @@
-interface SectionHeaderProps {
+﻿interface SectionHeaderProps {
   eyebrow: string;
   title: string;
   description: string;
@@ -16,15 +16,16 @@ export default function SectionHeader({
 
   return (
     <div className={`mb-12 ${alignment}`.trim()}>
-      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200/80">
+      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-lime-300/80">
         {eyebrow}
       </p>
-      <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+      <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
-      <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
+      <p className="mt-3 text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
         {description}
       </p>
     </div>
   );
 }
+

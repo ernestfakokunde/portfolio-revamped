@@ -6,7 +6,7 @@ import { contactLinks, socialLinks } from "@/app/data/site";
 
 export default function Contact() {
   return (
-    <section id="contact" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contact" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeader
@@ -21,7 +21,7 @@ export default function Contact() {
           <div className="panel rounded-[2rem] p-8 sm:p-10 lg:p-12">
             <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-100/80">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-lime-200/80">
                   Available for collaboration
                 </p>
                 <h3 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -106,3 +106,4 @@ export default function Contact() {
     </section>
   );
 }
+

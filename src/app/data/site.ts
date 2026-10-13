@@ -146,6 +146,39 @@ export const projects: ProjectItem[] = [
     stack: ["Next.js", "Tailwind CSS", "MongoDB"],
     status: "In Progress",
   },
+  {
+    name: "RecappEdu",
+    description:
+      "An AI-powered study platform that turns past exam papers into course-focused quizzes and flashcards. Students can upload private papers or share them with their course community.",
+    impact:
+      "Includes university-to-course profiles, configurable practice sets, a shared moderated paper library, and a dedicated admin dashboard.",
+    image: "/recapp-1.png",
+    href: "https://recapp-pi.vercel.app/",
+    stack: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Supabase Storage"],
+    status: "Live",
+  },
+  {
+    name: "Swiftbuck",
+    description:
+      "A naira wallet and payments app for peer-to-peer transfers, wallet funding, withdrawals, and airtime or data purchases.",
+    impact:
+      "Built around a double-entry ledger, idempotent transactions, safe wallet locking, and a reserve-then-settle bill payment flow.",
+    image: "/swiftbucks-1.png",
+    href: "https://swiftbucks.vercel.app/",
+    stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Paystack", "VTpass"],
+    status: "Live",
+  },
+  {
+    name: "GitPulse",
+    description:
+      "A mobile Git productivity tracker built to help developers stay consistent and committed to their contribution streaks.",
+    impact:
+      "Turns Git activity into a simple daily progress view that makes it easier to build lasting coding habits.",
+    image: "/gitpulse.png",
+    href: "https://github.com/ernestfakokunde/Git-Pulse",
+    stack: ["Mobile", "Git", "Productivity"],
+    status: "Live",
+  },
 ];
 
 export const featuredProject =
