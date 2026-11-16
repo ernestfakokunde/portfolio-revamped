@@ -15,7 +15,15 @@ const displayFont = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Ernest Fakokunde | Full-Stack Product Developer",
   description:
-    "Ernest Fakokunde Ayodele builds product-focused web experiences with clean structure, motion, and modern UI systems.",
+    "Ernest Fakokunde is a full-stack developer building business websites, custom web applications, dashboards, and digital products for businesses and startups.",
+  metadataBase: new URL("https://ernest-fakokunde-ayodele.vercel.app"),
+  openGraph: {
+    title: "Ernest Fakokunde | Full-Stack Developer & Product Builder",
+    description: "Digital products that help businesses work smarter and grow.",
+    url: "https://ernest-fakokunde-ayodele.vercel.app",
+    siteName: "Ernest Fakokunde",
+    type: "website",
+  },
   verification: {
     google: "bpovFkoH9D8qlJNBHCIDxcq0EJLLniDMBnISwK7-TNk",
   },

@@ -10,8 +10,8 @@ export default function About() {
           <Reveal>
           <SectionHeader
               eyebrow="About"
-              title="A developer who cares about both how a product works and how it feels."
-              description="I build modern web experiences with a strong eye for structure, usability, and visual polish."
+              title="Business understanding, product thinking, end-to-end delivery."
+              description="I work across frontend and backend to turn operational needs and product ideas into practical, usable software."
             />
             <div className="panel rounded-[2rem] p-8 sm:p-10">
               <div className="space-y-6">
@@ -62,9 +62,7 @@ export default function About() {
                   Working approach
                 </p>
                 <p className="mt-3 text-base leading-7 text-slate-300">
-                  I like products that need both visual polish and thoughtful
-                  implementation, especially when a platform needs a clearer
-                  structure, stronger motion, or a sharper front-end identity.
+                  I collaborate closely, communicate clearly, and keep usability and practical functionality in view from the first screen to the supporting systems.
                 </p>
               </div>
             </Reveal>

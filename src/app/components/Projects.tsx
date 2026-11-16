@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "@/app/components/ui/Reveal";
 import SectionHeader from "@/app/components/ui/SectionHeader";
 import { projects } from "@/app/data/site";
@@ -9,8 +10,8 @@ export default function Projects() {
         <Reveal>
           <SectionHeader
             eyebrow="Selected work"
-            title="A few things I have brought to life."
-            description="Products and experiments built with care."
+            title="Products built around real workflows."
+            description="Selected personal products and experiments. These are independent projects, not presented as paid client work."
           />
         </Reveal>
 
@@ -37,10 +38,12 @@ export default function Projects() {
                         <source src="/202603222119.mp4" type="video/mp4" />
                       </video>
                     ) : (
-                      <img
+                      <Image
                         src={project.image}
                         alt={`${project.name} preview`}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                         loading="lazy"
                       />
                     )}
@@ -50,7 +53,8 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  <div className="flex min-h-[205px] flex-col p-4 sm:p-5">
+                  <div className="flex min-h-[300px] flex-col p-4 sm:p-5">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-lime-200/80">{project.category}</p>
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-lg font-semibold tracking-tight text-white">
                         {project.name}
@@ -66,8 +70,13 @@ export default function Projects() {
                       {project.description}
                     </p>
 
+                    <p className="mt-3 text-xs leading-5 text-neutral-300"><span className="font-semibold text-white">Use case: </span>{project.problem}</p>
+                    <ul className="mt-3 space-y-1 text-xs leading-5 text-neutral-400">
+                      {project.features.map((feature) => <li key={feature}>- {feature}</li>)}
+                    </ul>
+
                     <div className="mt-3 flex flex-wrap gap-1.5">
-                      {project.stack.slice(0, 3).map((item) => (
+                      {project.stack.map((item) => (
                         <span
                           key={item}
                           className="rounded-md border border-white/[0.08] bg-white/[0.035] px-2 py-1 text-[10px] font-medium text-neutral-400"
@@ -75,11 +84,6 @@ export default function Projects() {
                           {item}
                         </span>
                       ))}
-                      {project.stack.length > 3 && (
-                        <span className="px-1 py-1 text-[10px] text-neutral-500">
-                          +{project.stack.length - 3}
-                        </span>
-                      )}
                     </div>
 
                     <div className="mt-auto pt-4">

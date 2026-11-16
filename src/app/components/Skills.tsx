@@ -8,9 +8,9 @@ export default function Skills() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeader
-            eyebrow="Capabilities"
-            title="The stack I use to turn ideas into clean, reliable experiences."
-            description="From front-end systems to backend delivery, these are the tools I use to build polished digital products."
+            eyebrow="How I work"
+            title="A practical partner from interface to integration."
+            description="I can contribute across the product: understand the workflow, build the interface, connect the backend, and refine the experience with your team."
           />
         </Reveal>
 

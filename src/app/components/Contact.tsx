@@ -11,8 +11,8 @@ export default function Contact() {
         <Reveal>
           <SectionHeader
             eyebrow="Contact"
-            title="Have an idea, product, or redesign in mind?"
-            description="Tell me what you want to build, improve, or launch, and let&apos;s shape the right experience for it."
+            title="Have a project in mind? Let’s build something useful."
+            description="Share a little about your business, product idea, or workflow. I’ll get back to you by email."
             align="center"
           />
         </Reveal>
@@ -22,16 +22,13 @@ export default function Contact() {
             <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-lime-200/80">
-                  Available for collaboration
+                  Available for freelance projects
                 </p>
                 <h3 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                  Let&apos;s build something that feels sharp, intentional, and
-                  memorable.
+                  Let’s solve a real business problem with software.
                 </h3>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                  If you need a full product interface, a landing page refresh,
-                  or a stronger UI system with better structure and motion, I
-                  would love to hear about it.
+                  Whether you need a business website, a custom application, or support on an agency build, send an enquiry and tell me what you need.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -39,7 +36,7 @@ export default function Contact() {
                     href="mailto:ernestfakokunde9@gmail.com"
                     className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:-translate-y-0.5 hover:bg-cyan-100"
                   >
-                    Send an email
+                    Email me
                   </a>
                   <a
                     href="https://github.com/ernestfakokunde"
